@@ -64,6 +64,45 @@ Outlier groups separated for analysis (VIPs, Frequent Buyers, Big Spenders).
 Visualization with PCA (2D) and 3D scatter plots.
 
 Combined clustering results with RFM Score for interpretable labels.
+## 6. Classification
+
+After clustering, we trained an XGBoost Classifier to predict the customer segment for new/unseen customers.
+
+### 🎯 Purpose of classification after clustering:
+
+Automate real-time customer segmentation without re-running clustering each time.
+
+Allow businesses to quickly assign new customers into the right group (e.g., VIP, At Risk, Frequent Buyer).
+
+Support marketing automation (personalized promotions, loyalty programs).
+
+Enable scalability: clustering is expensive, classification is fast.
+
+### ✅ Results:
+
+XGBoost Accuracy: ~98–100% (best among tested models).
+
+Proves that learned clusters are highly distinguishable and can be predicted reliably.
+
+## 7. Streamlit API Deployment
+
+We deployed the model using Streamlit so that users can:
+
+- Upload or input new customer transaction data.
+
+- Automatically preprocess and calculate RFM features.
+
+- Get instant predicted customer segment (based on XGBoost).
+
+- iew visual dashboards (cluster distribution, segment insights, recommendation strategies).
+
+- The app provides an interactive interface where marketing teams can experiment with:
+
+- Checking segment labels for new customers.
+
+- Visualizing customer clusters (2D & 3D plots).
+
+- Viewing personalized strategy suggestions per segment.
 
 ## 6. 💡 Insights
 
