@@ -96,14 +96,6 @@ We deployed the model using Streamlit so that users can:
 
 - iew visual dashboards (cluster distribution, segment insights, recommendation strategies).
 
-- The app provides an interactive interface where marketing teams can experiment with:
-
-- Checking segment labels for new customers.
-
-- Visualizing customer clusters (2D & 3D plots).
-
-- Viewing personalized strategy suggestions per segment.
-
 ## 6. 💡 Insights
 
 ### Identified customer segments:
