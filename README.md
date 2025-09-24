@@ -3,7 +3,7 @@
 
 This project applies RFM (Recency, Frequency, Monetary) analysis combined with clustering algorithms (K-Means, DBSCAN) to segment customers from the Online Retail dataset (2010–2011).
 
-🎯 Objectives:
+## 🎯 Objectives:
 
 Clean and preprocess retail transaction data.
 
@@ -43,13 +43,13 @@ Standardized features using StandardScaler (mean ~0, std ~1).
 MinMaxScaler avoided due to outlier sensitivity.
 
 ## 4. 🤖 Model Training
-K-Means
+### K-Means
 
 Optimal k ≈ 4 (via Elbow Method & Silhouette Score).
 
 Evaluated with: Silhouette, Calinski-Harabasz, Davies-Bouldin, Dunn Index.
 
-DBSCAN
+### DBSCAN
 
 Density-based clustering, auto outlier detection.
 
@@ -67,7 +67,7 @@ Combined clustering results with RFM Score for interpretable labels.
 
 ## 6. 💡 Insights
 
-Identified customer segments:
+### Identified customer segments:
 
 🏆 Valuable Customers (VIPs): High Frequency & Monetary, recent buyers.
 
@@ -81,7 +81,7 @@ Identified customer segments:
 
 ⚠️ At-Risk Customers: Long inactivity, low spending.
 
-📢 Marketing strategies:
+### 📢 Marketing strategies:
 
 VIPs → Loyalty programs, exclusive offers.
 
@@ -93,7 +93,7 @@ New Customers → Welcome offers, guided shopping.
 
 At-Risk → Win-back campaigns with strong incentives.
 
-✅ Conclusion
+# ✅ Conclusion
 
 K-Means: Provided balanced, clear customer segments.
 
