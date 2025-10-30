@@ -80,12 +80,13 @@ Proves that learned clusters are highly distinguishable and can be predicted rel
 
 Below is a table summarizing key evaluation metrics for the clustering and classification stages. Note: XGBoost, although more sophisticated than the transparent Logistic Regression, sometimes underperforms in maintaining interpretability as cluster complexity grows, leading to marginal AUC gains but higher computational overhead.
 
-| Model/Stage          | Silhouette Score | Calinski-Harabasz | Davies-Bouldin | Dunn Index | Accuracy (Classification) | AUC (Classification) |
-|----------------------|------------------|-------------------|----------------|------------|---------------------------|----------------------|
-| K-Means (k=4)       | 0.45            | 1200.5           | 0.78          | 1.2       | N/A                      | N/A                 |
-| DBSCAN              | 0.38            | 950.2            | 0.92          | 0.9       | N/A                      | N/A                 |
-| XGBoost Classifier  | N/A             | N/A              | N/A           | N/A       | 0.99                     | 0.98                |
-| Logistic Regression | N/A             | N/A              | N/A           | N/A       | 0.92                     | 0.90                |
+| Model                   | Accuracy | Macro Avg Precision | Macro Avg Recall | Macro Avg F1-Score | Weighted Avg F1-Score |
+|--------------------------|-----------|----------------------|------------------|--------------------|------------------------|
+| KNeighborsClassifier     | 0.93      | 0.91                 | 0.86             | 0.87               | 0.93                   |
+| LogisticRegression       | 0.90      | 0.91                 | 0.87             | 0.88               | 0.90                   |
+| DecisionTreeClassifier   | 0.98      | 0.98                 | 0.98             | 0.98               | 0.98                   |
+| RandomForestClassifier   | 0.98      | 0.99                 | 0.98             | 0.98               | 0.98                   |
+| XGBClassifier            | 0.99      | 0.99                 | 1.00             | 0.99               | 0.99                   |
 
 ## 7. Streamlit API Deployment
 
