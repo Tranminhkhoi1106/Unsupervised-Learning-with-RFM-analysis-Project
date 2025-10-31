@@ -1,10 +1,10 @@
-# 📊 Customer Segmentation using RFM & Clustering
+# Customer Segmentation using RFM & Clustering
 
-## 📌 Introduction
+## Introduction
 
 This project applies RFM (Recency, Frequency, Monetary) analysis combined with clustering algorithms (K-Means, DBSCAN) to segment customers from the Online Retail dataset (2010–2011). Inspired by recent research in predictive modeling, such as the work by Teng et al. (2023) on bridging accuracy and interpretability in credit scoring via a "Rescaled Cluster-then-Predict" approach, this project adapts similar techniques to customer segmentation. By clustering customers into homogeneous groups and then applying predictive models, we aim to derive actionable insights while balancing performance and explainability.
 
-## 🎯 Objectives:
+## Objectives:
 
 - Clean and preprocess retail transaction data.
 - Engineer meaningful RFM features.
@@ -12,7 +12,7 @@ This project applies RFM (Recency, Frequency, Monetary) analysis combined with c
 - Extract insights for marketing strategies.
 - Train a classifier (e.g., XGBoost) for real-time segment prediction on new data.
 
-## ⚙️ Pipeline
+## Pipeline
 
 ### 1. Preprocessing
 
@@ -65,14 +65,14 @@ In the "rescaled cluster-then-predict" technique from the paper, XGBoost plays a
 
 After clustering, we trained an XGBoost Classifier to predict the customer segment for new/unseen customers.
 
-### 🎯 Purpose of classification after clustering:
+### Purpose of classification after clustering:
 
 - Automate real-time customer segmentation without re-running clustering each time.
 - Allow businesses to quickly assign new customers into the right group (e.g., VIP, At Risk, Frequent Buyer).
 - Support marketing automation (personalized promotions, loyalty programs).
 - Enable scalability: clustering is expensive, classification is fast.
 
-### ✅ Results:
+### Results:
 
 XGBoost Accuracy: ~98–100% (best among tested models).
 
@@ -91,45 +91,17 @@ Below is a table summarizing key evaluation metrics for the clustering and class
 ## 7. Streamlit API Deployment
 
 We deployed the model using Streamlit so that users can:
-- Upload or input new customer transaction data.
+- Upload or Randomize input new customer transaction data.
+
+  <img width="247" height="454" alt="image" src="https://github.com/user-attachments/assets/5a4c9a75-53d9-4fc5-b01e-10f39dee2111" />
+
 - Automatically preprocess and calculate RFM features.
+
+<img width="764" height="508" alt="image" src="https://github.com/user-attachments/assets/8ef35e01-e267-4f9c-980c-28cd2a4bba2e" />
+
 - Get instant predicted customer segment (based on XGBoost).
-- View visual dashboards (cluster distribution, segment insights, recommendation strategies).
 
-(Note: This section is still under refinement. Future enhancements include adding interactive RFM calculators, real-time data streaming integration, and export options for segment reports. Contributions welcome to expand this API!)
+  <img width="727" height="264" alt="image" src="https://github.com/user-attachments/assets/2bbe7d2f-03d7-4627-96d3-4f8660f1f274" />
 
-## 6. 💡 Insights
 
-### Identified customer segments:
 
-- 🏆 Valuable Customers (VIPs): High Frequency & Monetary, recent buyers.
-- 🔄 Frequent Buyers: Purchase often, moderate spending/order.
-- 💰 High-Spending Buyers: Fewer orders, but very high value per order.
-- 🤝 Engaged Customers: Consistent and active.
-- 🌱 New/One-time Customers: First-time or low-value purchases.
-- ⚠️ At-Risk Customers: Long inactivity, low spending.
-
-### 📢 Marketing strategies:
-
-- VIPs → Loyalty programs, exclusive offers.
-- Frequent Buyers → Upselling, bundle promotions.
-- Big Spenders → Premium care, personalized deals.
-- New Customers → Welcome offers, guided shopping.
-- At-Risk → Win-back campaigns with strong incentives.
-
-# ✅ Conclusion
-
-K-Means: Provided balanced, clear customer segments.
-
-DBSCAN: Strong outlier detection but produced many noise points.
-
-RFM + Clustering: Helped generate actionable marketing insights and customer strategies.
-
-This project aligns with the paper in using rescaled/clustered approaches for better accuracy on imbalanced data, with XGBoost enhancing prediction but trading some interpretability.
-
-🚀 Future Work:
-
-- Explore advanced clustering (Gaussian Mixture, Spectral Clustering).
-- Add behavioral/time-series features.
-- Build recommendation systems for each segment.
-- Further develop the Streamlit API for enhanced user interaction.
