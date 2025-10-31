@@ -91,6 +91,9 @@ Below is a table summarizing key evaluation metrics for the clustering and class
 ## 7. Streamlit API Deployment
 
 We deployed the model using Streamlit so that users can:
+
+  <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/b49ccd8e-1622-4f56-b2d4-791d80633da1" />
+
 - Upload or Randomize input new customer transaction data.
 
   <img width="247" height="454" alt="image" src="https://github.com/user-attachments/assets/5a4c9a75-53d9-4fc5-b01e-10f39dee2111" />
