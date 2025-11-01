@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project applies RFM (Recency, Frequency, Monetary) analysis combined with clustering algorithms (K-Means, DBSCAN) to segment customers from the Online Retail dataset (2010–2011). Inspired by recent research in predictive modeling, such as the work by Teng et al. (2023) on bridging accuracy and interpretability in credit scoring via a "Rescaled Cluster-then-Predict" approach, this project adapts similar techniques to customer segmentation. By clustering customers into homogeneous groups and then applying predictive models, we aim to derive actionable insights while balancing performance and explainability.
+This project applies RFM (Recency, Frequency, Monetary) analysis combined with clustering algorithms (K-Means, DBSCAN) to segment customers from the Online Retail dataset (2010–2011). Inspired by the idea of cluster-then-predict approaches in predictive modeling, this project focuses on identifying homogeneous customer groups and then building a classifier to predict the cluster of new customers automatically. The ultimate goal is to enhance marketing decision-making and enable real-time segmentation for business applications.
 
 ## Objectives:
 
@@ -31,14 +31,12 @@ RFM Score: Quartile-based scoring (1–4).
 
 Outlier Handling: IQR method applied to Frequency & Monetary.
 
-This feature engineering step draws parallels to the rescaling techniques in the paper, where features are adjusted based on their relevance to the target (e.g., default prediction in credit scoring). In RFM, we engineer features that capture customer behavior patterns, emphasizing recency for timeliness, frequency for loyalty, and monetary for value—similar to how the paper rescales features to reflect their impact on the outcome, promoting better clustering by prioritizing essential variables.
+This feature engineering step draws parallels to dimensionality reduction techniques, where features are combined into three dimensions. In RFM, we engineer features that capture customer behavior patterns—emphasizing Recency for timeliness, Frequency for loyalty, and Monetary for value—similar to how dimensionality reduction methods prioritize essential variables to improve clustering performance.
 
 ### 3. Normalization
 
 - Standardized features using StandardScaler (mean ~0, std ~1), which is equivalent to Z-score normalization.
 - MinMaxScaler avoided due to outlier sensitivity.
-
-Feature scaling is crucial for clustering. Z-score normalization ensures features contribute equally without dominance by scale, preventing irrelevant features from skewing results—much like the paper's warning against traditional normalization (e.g., min-max) that doesn't differentiate feature importance. MinMax was tested but discarded here, as it amplified outliers in Monetary values, leading to suboptimal clusters. In contrast, Z-score provided robust handling of imbalanced distributions, aligning with the paper's emphasis on rescaling to mirror feature significance for improved prediction accuracy.
 
 ### 4. 🤖 Model Training
 
@@ -51,9 +49,8 @@ Feature scaling is crucial for clustering. Z-score normalization ensures feature
 - Parameters: eps, min_samples tuned via k-distance graph.
 - High-quality clusters but many noise points.
 
-This "cluster-then-predict" framework shares common ground with the paper, where data is segmented into subgroups via clustering, followed by model application (e.g., Logistic Regression or XGBoost) within each group. Both approaches aim to enhance interpretability and performance on imbalanced data—here, imbalanced customer behaviors (e.g., few high-value VIPs vs. many low-frequency buyers). A key similarity is clustering only "positive" cases for efficiency: the paper clusters default (positive) cases to reduce computation, while this project isolates outliers (e.g., VIPs, Big Spenders) as separate groups before full clustering, yielding comparable results with lower resource use.
-
-In the "rescaled cluster-then-predict" technique from the paper, XGBoost plays a dual role: it's used for sophisticated prediction within clusters but often remains unaffected or even dips in AUC with more clusters/polynomial features. Here, XGBoost is adapted post-clustering for classification, leveraging its ensemble strength to predict segments accurately. However, as noted in the paper, XGBoost—although more sophisticated than the transparent Logistic Regression—can sometimes underperform in scenarios requiring high interpretability, such as when clusters increase complexity without proportional gains in AUC.
+This "cluster-then-predict" structure allows segmentation of customers into interpretable groups such as VIPs, Frequent Buyers, At Risk, and Low Value customers.
+Once clusters are formed, these labels serve as the basis for supervised classification.
 
 ### 5. Others
 
@@ -106,5 +103,9 @@ We deployed the model using Streamlit so that users can:
 
   <img width="727" height="264" alt="image" src="https://github.com/user-attachments/assets/2bbe7d2f-03d7-4627-96d3-4f8660f1f274" />
 
+## 8. Conclusion
+
+This project demonstrates how RFM-based clustering combined with XGBoost classification can create an efficient, interpretable, and scalable customer segmentation system.
+It supports real-time predictions, helping businesses better understand customer value and optimize marketing strategies without sacrificing performance or interpretability.
 
 
